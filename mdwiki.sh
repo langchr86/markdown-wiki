@@ -31,6 +31,7 @@ printf "<title>${TITLE}</title>\n" >> ${INDEX_HTML}
 printf "</head>\n" >> ${INDEX_HTML}
 printf "<link rel="stylesheet" type="text/css" href="style.css">\n" >> ${INDEX_HTML}
 printf "<body>\n" >> ${INDEX_HTML}
+printf "<div id="content">\n" >> ${INDEX_HTML}
 
 printf "<h1>${TITLE}</h1>\n\n" >> ${INDEX_HTML}
 
@@ -75,6 +76,7 @@ do
 		printf "<title>${FILE_NAME} - ${TITLE}</title>\n" >> ${DEST_FILE}
 		printf "</head>\n" >> ${DEST_FILE}
 		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
+		printf "<body>\n" >> ${DEST_FILE}
 		printf "<div id="content">\n" >> ${DEST_FILE}
 
 		# do processing
@@ -82,6 +84,7 @@ do
 
 		# close html tags
 		printf "</div>\n" >> ${DEST_FILE}
+		printf "</body>\n" >> ${DEST_FILE}
 		printf "</html>\n" >> ${DEST_FILE}
 
 
@@ -94,6 +97,7 @@ do
 done
 
 # close index file
+printf "</div>\n" >> ${INDEX_HTML}
 printf "</body>\n" >> ${INDEX_HTML}
 printf "</html>\n" >> ${INDEX_HTML}
 
