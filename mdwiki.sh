@@ -75,6 +75,9 @@ do
 		printf "<body>\n" >> ${DEST_FILE}
 		printf "<div id="content">\n" >> ${DEST_FILE}
 
+		# include back link
+		printf "<div align="right"><small><a href="../index.html">back to index</a></small></div>\n" >> ${DEST_FILE}
+
 		# do processing
 		${MARKDOWN} ${SOURCE_FILE} >> ${DEST_FILE}
 
