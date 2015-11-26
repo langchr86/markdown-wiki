@@ -68,8 +68,22 @@ do
 		FILE_NAME=${file%.*}
 		FILE_LINK=${dir}/${FILE_NAME}.html
 
+		# prepare destination html file
+		printf "<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">\n" >> ${DEST_FILE}
+		printf "<html>\n" >> ${DEST_FILE}
+		printf "<head>\n" >> ${DEST_FILE}
+		printf "<title>${FILE_NAME} - ${TITLE}</title>\n" >> ${DEST_FILE}
+		printf "</head>\n" >> ${DEST_FILE}
+		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
+		printf "<content>\n" >> ${DEST_FILE}
+
 		# do processing
 		${MARKDOWN} ${SOURCE_FILE} >> ${DEST_FILE}
+
+		# close html tags
+		printf "</content>\n" >> ${DEST_FILE}
+		printf "</html>\n" >> ${DEST_FILE}
+
 
 		# insert entry in index file
 		printf "<li><a href="${FILE_LINK}">${FILE_NAME}</a></li>\n" >> ${INDEX_HTML}
