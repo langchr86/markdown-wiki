@@ -4,14 +4,15 @@
 # Only one sub-folder level is supported. All markdown files need to be in a subfolder.
 
 
-if [ $# -ne 3 ]; then
-	echo "usage: $0 SOURCE_FOLDER DESTINATION_FOLDER TITLE"
+if [ $# -ne 4 ]; then
+	echo "usage: $0 SOURCE_FOLDER DESTINATION_FOLDER TITLE DESCRIPTION"
 	exit 1
 fi
 
 SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
 TITLE=$3
+DESCRIPTION=$4
 MARKDOWN="pandoc --from markdown --to html5"
 
 
@@ -30,6 +31,7 @@ printf "<link rel="stylesheet" type="text/css" href="style.css">\n" >> ${INDEX_H
 printf "<body>\n" >> ${INDEX_HTML}
 printf "<div id="content">\n" >> ${INDEX_HTML}
 printf "<h1>${TITLE}</h1>\n" >> ${INDEX_HTML}
+printf "<p>${DESCRIPTION}</p>\n" >> ${INDEX_HTML}
 
 # start processing
 echo "start processing in: ${SOURCE_FOLDER}"
