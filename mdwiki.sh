@@ -90,6 +90,9 @@ do
 		printf "<li><a href="${FILE_LINK}">${FILE_NAME}</a></li>\n" >> ${INDEX_HTML}
 	done
 
+	# copy all other files than md
+	find ${SOURCE_SUBDIR} -type f -not -name "*.md" -exec cp {} ${DEST_SUBDIR} \;
+
 	# close list
 	printf "</ul>\n\n" >> ${INDEX_HTML}
 done
