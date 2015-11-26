@@ -4,15 +4,14 @@
 # Only one sub-folder level is supported. All markdown files need to be in a subfolder.
 
 
-if [ $# -ne 2 ]; then
-	echo "usage: $0 SOURCE_FOLDER DESTINATION_FOLDER"
+if [ $# -ne 3 ]; then
+	echo "usage: $0 SOURCE_FOLDER DESTINATION_FOLDER TITLE"
 	exit 1
 fi
 
 SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
-
-TITLE="Wiki"
+TITLE=$3
 MARKDOWN="pandoc --from markdown --to html5"
 
 
@@ -86,7 +85,6 @@ do
 		printf "</div>\n" >> ${DEST_FILE}
 		printf "</body>\n" >> ${DEST_FILE}
 		printf "</html>\n" >> ${DEST_FILE}
-
 
 		# insert entry in index file
 		printf "<li><a href="${FILE_LINK}">${FILE_NAME}</a></li>\n" >> ${INDEX_HTML}
