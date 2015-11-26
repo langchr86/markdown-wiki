@@ -13,7 +13,7 @@ SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
 
 TITLE="Wiki"
-MARKDOWN="markdown"
+MARKDOWN="pandoc --from markdown --to html5"
 
 
 # empty destination folder
