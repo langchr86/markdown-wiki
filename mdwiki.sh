@@ -39,6 +39,11 @@ echo "start processing in: ${SOURCE_FOLDER}"
 # iterate over subdirectories
 for dir in ${SOURCE_FOLDER}/*/
 do
+	# ignore folder without any md file
+	if [ ! "$(ls -A ${dir}/*.md 2>/dev/null)" ]; then
+	  continue
+	fi
+
 	# get subdirectory
     dir=${dir%*/}
     dir=${dir##*/}
