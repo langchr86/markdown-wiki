@@ -13,7 +13,7 @@ SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
 TITLE=$3
 DESCRIPTION=$4
-MARKDOWN="pandoc --from markdown --to html5"
+MARKDOWN="pandoc --from markdown --to html5 --mathml"
 
 
 # empty destination folder
