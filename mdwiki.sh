@@ -97,8 +97,9 @@ done
 printf "</body>\n" >> ${INDEX_HTML}
 printf "</html>\n" >> ${INDEX_HTML}
 
-# copy in style sheet
+# copy in style
 cp style.css ${DESTINATION_FOLDER}
+cp back.png ${DESTINATION_FOLDER}
 
 
 
