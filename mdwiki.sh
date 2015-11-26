@@ -75,13 +75,13 @@ do
 		printf "<title>${FILE_NAME} - ${TITLE}</title>\n" >> ${DEST_FILE}
 		printf "</head>\n" >> ${DEST_FILE}
 		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
-		printf "<content>\n" >> ${DEST_FILE}
+		printf "<div id="content">\n" >> ${DEST_FILE}
 
 		# do processing
 		${MARKDOWN} ${SOURCE_FILE} >> ${DEST_FILE}
 
 		# close html tags
-		printf "</content>\n" >> ${DEST_FILE}
+		printf "</div>\n" >> ${DEST_FILE}
 		printf "</html>\n" >> ${DEST_FILE}
 
 
