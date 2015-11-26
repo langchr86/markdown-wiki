@@ -21,9 +21,7 @@ rm -rf ${DESTINATION_FOLDER}/*
 
 # prepare index file
 INDEX_HTML=${DESTINATION_FOLDER}/index.html
-touch ${INDEX_HTML}
-
-printf "<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">\n" >> ${INDEX_HTML}
+printf "<!DOCTYPE HTML>\n" >> ${INDEX_HTML}
 printf "<html>\n" >> ${INDEX_HTML}
 printf "<head>\n" >> ${INDEX_HTML}
 printf "<title>${TITLE}</title>\n" >> ${INDEX_HTML}
@@ -31,8 +29,7 @@ printf "</head>\n" >> ${INDEX_HTML}
 printf "<link rel="stylesheet" type="text/css" href="style.css">\n" >> ${INDEX_HTML}
 printf "<body>\n" >> ${INDEX_HTML}
 printf "<div id="content">\n" >> ${INDEX_HTML}
-
-printf "<h1>${TITLE}</h1>\n\n" >> ${INDEX_HTML}
+printf "<h1>${TITLE}</h1>\n" >> ${INDEX_HTML}
 
 # start processing
 echo "start processing in: ${SOURCE_FOLDER}"
@@ -53,7 +50,7 @@ do
 	mkdir ${DEST_SUBDIR}
 
 	# insert category in index file
-	printf "<h2>${dir}</h2>\n\n" >> ${INDEX_HTML}
+	printf "<h2>${dir}</h2>\n" >> ${INDEX_HTML}
 	printf "<ul>\n" >> ${INDEX_HTML}
 
 	# iterate over markdown files in subdirectory
@@ -69,7 +66,7 @@ do
 		FILE_LINK=${dir}/${FILE_NAME}.html
 
 		# prepare destination html file
-		printf "<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">\n" >> ${DEST_FILE}
+		printf "<!DOCTYPE HTML\n" >> ${DEST_FILE}
 		printf "<html>\n" >> ${DEST_FILE}
 		printf "<head>\n" >> ${DEST_FILE}
 		printf "<title>${FILE_NAME} - ${TITLE}</title>\n" >> ${DEST_FILE}
@@ -94,7 +91,7 @@ do
 	find ${SOURCE_SUBDIR} -type f -not -name "*.md" -exec cp {} ${DEST_SUBDIR} \;
 
 	# close list
-	printf "</ul>\n\n" >> ${INDEX_HTML}
+	printf "</ul>\n" >> ${INDEX_HTML}
 done
 
 # close index file
