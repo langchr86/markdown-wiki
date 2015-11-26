@@ -24,7 +24,7 @@ body {
   background-repeat: repeat;
   background-position: top left;
   padding: 20px;
-  max-width: 960px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -69,12 +69,12 @@ h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, 
 
 h1 {
   font-size: 28px;
+  border-bottom: 1px solid #dde;
   color: #000;
 }
 
 h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #ccc;
+  font-size: 22px;
   color: #000;
 }
 
@@ -108,6 +108,21 @@ a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-
 h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
   margin-top: 10px;
 }
+
+/* HEADER COUNTS (from: http://philarcher.org/diary/2013/headingnumbers/)
+=============================================================================*/
+
+body {counter-reset: h2}
+h2 {counter-reset: h3}
+h3 {counter-reset: h4}
+h4 {counter-reset: h5}
+h5 {counter-reset: h6}
+h2:before {counter-increment: h2; content: counter(h2) ". "}
+h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
+h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
+h5:before {counter-increment: h5; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+h6:before {counter-increment: h6; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
+h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before {content: ""; counter-increment: none}
 
 /* LINKS
 =============================================================================*/
@@ -240,7 +255,7 @@ kbd {
 =============================================================================*/
 
 blockquote {
-  border-left: 4px solid #DDD;
+  border-left: 4px solid #dde;
   padding: 0 15px;
   color: #777;
 }
