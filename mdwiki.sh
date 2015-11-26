@@ -13,6 +13,7 @@ SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
 
 TITLE="Wiki"
+MARKDOWN="markdown"
 
 
 # empty destination folder
@@ -68,7 +69,7 @@ do
 		FILE_LINK=${dir}/${FILE_NAME}.html
 
 		# do processing
-		markdown ${SOURCE_FILE} > ${DEST_FILE}
+		${MARKDOWN} ${SOURCE_FILE} >> ${DEST_FILE}
 
 		# insert entry in index file
 		printf "<li><a href="${FILE_LINK}">${FILE_NAME}</a></li>\n" >> ${INDEX_HTML}
