@@ -16,6 +16,9 @@ DESCRIPTION=$4
 MARKDOWN="pandoc --from markdown --to html5 --mathml"
 
 
+# get path of script location
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 # empty destination folder
 echo "empty destination: ${DESTINATION_FOLDER}"
 rm -rf ${DESTINATION_FOLDER}/*
@@ -110,8 +113,8 @@ printf "</body>\n" >> ${INDEX_HTML}
 printf "</html>\n" >> ${INDEX_HTML}
 
 # copy in style
-cp style.css ${DESTINATION_FOLDER}
-cp back.png ${DESTINATION_FOLDER}
+cp ${SCRIPT_DIR}/style.css ${DESTINATION_FOLDER}
+cp ${SCRIPT_DIR}/back.png ${DESTINATION_FOLDER}
 
 
 
