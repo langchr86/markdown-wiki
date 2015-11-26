@@ -69,7 +69,7 @@ h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, 
 
 h1 {
   font-size: 28px;
-  border-bottom: 1px solid #dde;
+  border-bottom: 1px solid #dce5f7;
   color: #000;
 }
 
@@ -255,7 +255,7 @@ kbd {
 =============================================================================*/
 
 blockquote {
-  border-left: 4px solid #dde;
+  border-left: 4px solid #dce5f7;
   padding: 0 15px;
   color: #777;
 }
