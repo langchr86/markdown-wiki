@@ -75,11 +75,14 @@ do
 		FILE_NAME=${file%.*}
 		FILE_LINK=${dir}/${FILE_NAME}.html
 
+		# get file description of first h1 title marked by === underline
+		FILE_DESC=`sed -e '/===*=/,$d' ${SOURCE_FILE}`
+
 		# prepare destination html file
 		printf "<!DOCTYPE HTML\n" >> ${DEST_FILE}
 		printf "<html>\n" >> ${DEST_FILE}
 		printf "<head>\n" >> ${DEST_FILE}
-		printf "<title>${FILE_NAME} - ${TITLE}</title>\n" >> ${DEST_FILE}
+		printf "<title>${FILE_DESC} - ${TITLE}</title>\n" >> ${DEST_FILE}
 		printf "</head>\n" >> ${DEST_FILE}
 		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
 		printf "<body>\n" >> ${DEST_FILE}
@@ -97,7 +100,7 @@ do
 		printf "</html>\n" >> ${DEST_FILE}
 
 		# insert entry in index file
-		printf "<li><a href="${FILE_LINK}">${FILE_NAME}</a></li>\n" >> ${INDEX_HTML}
+		printf "<li><a href="${FILE_LINK}">${FILE_DESC}</a></li>\n" >> ${INDEX_HTML}
 	done
 
 	# copy all other files than md
