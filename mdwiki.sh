@@ -45,6 +45,7 @@ printf "<!DOCTYPE HTML>\n" >> ${INDEX_HTML}
 printf "<html>\n" >> ${INDEX_HTML}
 printf "<head>\n" >> ${INDEX_HTML}
 printf "<title>${TITLE}</title>\n" >> ${INDEX_HTML}
+printf "<meta http-equiv="content-type" content="charset=utf-8">\n" >> ${INDEX_HTML}
 printf "</head>\n" >> ${INDEX_HTML}
 printf "<link rel="stylesheet" type="text/css" href="style.css">\n" >> ${INDEX_HTML}
 printf "<body>\n" >> ${INDEX_HTML}
@@ -101,6 +102,7 @@ do
 		printf "<html>\n" >> ${DEST_FILE}
 		printf "<head>\n" >> ${DEST_FILE}
 		printf "<title>${FILE_DESC} - ${TITLE}</title>\n" >> ${DEST_FILE}
+		printf "<meta http-equiv="content-type" content="charset=utf-8">\n" >> ${DEST_FILE}
 		printf "</head>\n" >> ${DEST_FILE}
 		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
 		printf "<body>\n" >> ${DEST_FILE}
