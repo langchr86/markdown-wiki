@@ -43,7 +43,9 @@ echo "start processing in: ${SOURCE_FOLDER}"
 for dir in ${SOURCE_FOLDER}/*/
 do
 	# ignore folder without any md file
-	if [ ! "$(ls -A ${dir}/*.md 2>/dev/null)" ]; then
+	dir_pattern="${dir}/*.md"
+	if [ ! '$(ls -A "${dir_pattern}" 2>/dev/null)' ]; then
+	  echo "  skip ${dir}"
 	  continue
 	fi
 
