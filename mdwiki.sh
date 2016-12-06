@@ -1,7 +1,23 @@
 #!/bin/bash
 
-# Tool to generate simple html wiki from a structure of markdown files.
+# Tool to generate simple html wiki from a structure of markdown files. It uses only html and CSS.
+#
 # Only one sub-folder level is supported. All markdown files need to be in a subfolder.
+# All other files are simply copied to destination folder.
+# Example file structure:
+# wiki
+# |- tools
+# |  |- tmux.md
+# |  +- bash.md
+# |- others
+#    |- dos.md
+#    +- example.png
+#
+# To generate the Webpage in the folder /tmp/page if the source wiki folder is on /tmp/wiki you call the script as follows:
+# $ mdwiki.sh /tmp/wiki /tmp/page "ExampleWiki" "This is the description"
+#
+# Requirements: pandoc
+
 
 
 if [ $# -ne 4 ]; then
