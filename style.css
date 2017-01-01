@@ -67,38 +67,43 @@ h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, 
   font-size: inherit;
 }
 
-h1 {
+.title {
   font-style: italic;
   font-size: 28px;
   border-bottom: 2px solid #bbddff;
   color: #000;
 }
 
-h2 {
+h1 {
   margin: 50px 0 10px;
   font-size: 22px;
   border-bottom: 1px solid #dce5f7;
   color: #000;
 }
 
-h3 {
+h2 {
   margin: 35px 0 10px;
   font-size: 18px;
 }
 
-h4 {
+h3 {
   margin: 30px 0 10px;
   font-size: 16px;
 }
 
-h5 {
+h4 {
   margin: 25px 0 10px;
+  font-size: 14px;
+}
+
+h5 {
+  color: #777;
   font-size: 14px;
 }
 
 h6 {
   color: #777;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
@@ -118,17 +123,17 @@ h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
 /* HEADER COUNTS (from: http://philarcher.org/diary/2013/headingnumbers/)
 =============================================================================*/
 
-body {counter-reset: h2}
+body {counter-reset: h1}
+h1 {counter-reset: h2}
 h2 {counter-reset: h3}
 h3 {counter-reset: h4}
 h4 {counter-reset: h5}
-h5 {counter-reset: h6}
-h2:before {counter-increment: h2; content: counter(h2) ". "}
-h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
-h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
-h5:before {counter-increment: h5; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
-h6:before {counter-increment: h6; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
-h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before {content: ""; counter-increment: none}
+h1:not(.title):before {counter-increment: h1; content: counter(h1) ". "}
+h2:before {counter-increment: h2; content: counter(h1) "." counter(h2) ". "}
+h3:before {counter-increment: h3; content: counter(h1) "." counter(h2) "." counter(h3) ". "}
+h4:before {counter-increment: h4; content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "}
+h5:before {counter-increment: h5; content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before {content: ""; counter-increment: none}
 
 /* LINKS
 =============================================================================*/

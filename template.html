@@ -35,7 +35,12 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-<div align="right"><small><a href="../index.html">back to index</a></small></div>
+$if(backtoindex)$
+<div align="right"><small><a href="./index.html">back to index</a></small></div>
+$endif$
+$if(totopindex)$
+<div align="right"><small><a href="../index.html">back to top</a></small></div>
+$endif$
 $if(title)$
 <div id="$idprefix$header">
 <h1 class="title">$title$</h1>
