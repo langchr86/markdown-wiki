@@ -33,7 +33,7 @@ SOURCE_FOLDER=$1
 DESTINATION_FOLDER=$2
 TITLE=$3
 DESCRIPTION=$4
-MARKDOWN="pandoc --from markdown --to html5 --mathml"
+MARKDOWN="pandoc --from markdown --to html5 --section-divs --mathml --toc --toc-depth=1 -c ../style.css --template=${SCRIPT_DIR}/template.html"
 
 
 # empty destination folder
@@ -98,27 +98,8 @@ do
 		# get file description of first h1 title marked by === underline
 		FILE_DESC=`sed -e '/===*=/,$d' ${SOURCE_FILE}`
 
-		# prepare destination html file
-		printf "<!DOCTYPE HTML\n" >> ${DEST_FILE}
-		printf "<html>\n" >> ${DEST_FILE}
-		printf "<head>\n" >> ${DEST_FILE}
-		printf "<title>${FILE_DESC} - ${TITLE}</title>\n" >> ${DEST_FILE}
-		printf "<meta http-equiv="content-type" content="charset=utf-8">\n" >> ${DEST_FILE}
-		printf "</head>\n" >> ${DEST_FILE}
-		printf "<link rel="stylesheet" type="text/css" href="../style.css">\n" >> ${DEST_FILE}
-		printf "<body>\n" >> ${DEST_FILE}
-		printf "<div id="content">\n" >> ${DEST_FILE}
-
-		# include back link
-		printf "<div align="right"><small><a href="../index.html">back to index</a></small></div>\n" >> ${DEST_FILE}
-
 		# do processing
 		${MARKDOWN} ${SOURCE_FILE} >> ${DEST_FILE}
-
-		# close html tags
-		printf "</div>\n" >> ${DEST_FILE}
-		printf "</body>\n" >> ${DEST_FILE}
-		printf "</html>\n" >> ${DEST_FILE}
 
 		# insert entry in index file
 		printf "<li><a href="${FILE_LINK}">${FILE_DESC}</a></li>\n" >> ${INDEX_HTML}
