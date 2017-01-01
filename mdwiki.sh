@@ -20,6 +20,10 @@
 
 
 
+# get path of script location
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+
 if [ $# -ne 4 ]; then
 	echo "usage: $0 SOURCE_FOLDER DESTINATION_FOLDER TITLE DESCRIPTION"
 	exit 1
@@ -31,9 +35,6 @@ TITLE=$3
 DESCRIPTION=$4
 MARKDOWN="pandoc --from markdown --to html5 --mathml"
 
-
-# get path of script location
-SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # empty destination folder
 echo "empty destination: ${DESTINATION_FOLDER}"
