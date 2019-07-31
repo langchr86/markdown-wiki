@@ -24,13 +24,12 @@ body {
   background-repeat: repeat;
   background-position: top left;
   padding: 20px;
-  max-width: 800px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 #content {
   background-color: #FFF;
-  width: 768px;
   margin: auto;
   margin-top: 1.5em;
   padding: 2em;
