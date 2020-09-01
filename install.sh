@@ -1,19 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
-SD_PATH="/etc/systemd/system"
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-cp -f markdown-wiki.service ${SD_PATH}
-cp -f markdown-wiki.timer ${SD_PATH}
-
-systemctl daemon-reload
-systemctl enable markdown-wiki.timer
-systemctl start markdown-wiki.timer
-
-
-TOOL_PATH="/opt/clang/markdown-wiki/"
+TOOL_PATH=${1:-${HOME}/.local/bin}
 
 mkdir -p ${TOOL_PATH}
-cp -f mdwiki.sh ${TOOL_PATH}
-cp -f style.css ${TOOL_PATH}
-cp -f template.html ${TOOL_PATH}
-cp -f back.png ${TOOL_PATH}
+cp -f ${SCRIPT_DIR}/mdwiki.sh ${TOOL_PATH}
+cp -f ${SCRIPT_DIR}/style.css ${TOOL_PATH}
+cp -f ${SCRIPT_DIR}/template.html ${TOOL_PATH}
+cp -f ${SCRIPT_DIR}/back.png ${TOOL_PATH}
