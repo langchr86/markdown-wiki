@@ -1,31 +1,5 @@
 #!/bin/bash
 
-# Tool to generate simple html wiki from a structure of markdown files. It uses only html and CSS.
-#
-# Multiple levels of sub-folders are supported. Each folder (also the root) needs an index.md file
-# to be processed. All md files needs a title section at top, like: "% test-title"
-# All other files then markdown are simply copied to destination folder.
-#
-# Example file structure:
-# wiki
-# |- index.md
-# |- tools
-# |  |- index.md
-# |  |- tmux.md
-# |  +- bash.md
-# |- others
-# |  |- index.md
-#    |- dos.md
-#    +- example.png
-#
-# To generate the Webpage in the folder /tmp/page if the source wiki folder is on /tmp/wiki you call the script as follows:
-# $ mdwiki.sh /tmp/wiki /tmp/page
-#
-# Requirements: pandoc
-
-
-
-# get path of script location
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 
@@ -44,7 +18,7 @@ MARKDOWN="pandoc --from markdown --to html5 --section-divs --mathml --toc --toc-
 
 
 # check that pandoc is installed
-hash pandoc 2>/dev/null || { echo >&2 "I require pandoc but it's not installed.  Aborting."; exit 1; }
+hash pandoc 2>/dev/null || { echo >&2 "I require 'pandoc' but it's not installed.  Aborting."; exit 1; }
 
 
 # empty destination folder
