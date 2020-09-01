@@ -2,5 +2,5 @@
 Description=Create the markdown-wiki
 
 [Service]
-ExecStart=/opt/clang/markdown-wiki/mdwiki.sh /share/data/wiki/ /var/www/html/wiki/
+ExecStart=/usr/bin/mdwiki.sh /share/data/wiki/ /var/www/html/wiki/
 User=root
