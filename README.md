@@ -11,3 +11,26 @@ The generated Wiki looks like:
 
 All other description is found in the script itself.
 
+
+
+License
+-------
+
+MIT
+
+
+
+Versioning
+----------
+
+There exists no version numbers, releases, tags or branches.
+The master should be considered the current stable release.
+All other existing branches are feature/development branches and are considered unstable.
+
+
+
+Author Information
+------------------
+
+Christian Lang
+[lang.chr86@gmail.com](mailto:lang.chr86@gmail.com)
